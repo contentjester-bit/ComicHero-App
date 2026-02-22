@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workato — Icons v3 + Spot Header</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: #f4f4f4;
+    color: #1a1a1a;
+    padding: 40px;
+  }
+
+  .page-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    margin-bottom: 32px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #27989F;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #e0f4f5; }
+
+  /* ═══════════════════════════
+     HERO BANNER
+  ═══════════════════════════ */
+  .spot-hero {
+    background: #f0f0f0;
+    border: 1.5px solid #27989F;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    min-height: 200px;
+    position: relative;
+  }
+
+  /* illustration column */
+  .hero-illustration {
+    flex: 0 0 340px;
+    position: relative;
+    background: linear-gradient(120deg, #e8e8e8 0%, #f0f0f0 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* text column */
+  .hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 36px 48px 36px 40px;
+    gap: 10px;
+  }
+  .hero-text h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+  .hero-text p {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 420px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    background: #27989F;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 0.15s;
+  }
+  .hero-cta:hover { background: #1f7e84; }
+
+  /* nav pill bar */
+  .spot-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+  }
+  .nav-pill {
+    background: #27989F;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .nav-pill:hover    { background: #1f7e84; }
+  .nav-pill.active   { background: #065F69; }
+  .nav-pill.outlined {
+    background: transparent;
+    border: 1.5px solid #27989F;
+    color: #27989F;
+  }
+  .nav-pill.outlined:hover { background: #e4f6f7; }
+
+  /* ═══════════════════════════
+     ICON SHOWCASE
+  ═══════════════════════════ */
+  .icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .showcase-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+  }
+  .hs-circle-lg {
+    width: 97px;
+    height: 97px;
+    min-width: 97px;
+    border-radius: 50%;
+    background: #e4f6f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(39,152,159,0.12);
+  }
+  .showcase-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #27989F;
+    text-align: center;
+  }
+
+  /* list preview */
+  .hs-preview {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 460px;
+    flex: 1;
+  }
+  .hs-preview-header {
+    background: #111;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 9px 18px;
+    letter-spacing: 0.04em;
+  }
+  .hs-list-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .hs-list-row:hover { background: #f8fdfd; }
+  .hs-list-row:last-child { border-bottom: none; }
+  .hs-list-circle {
+    width: 57px; height: 57px; min-width: 57px;
+    border-radius: 50%;
+    background: #e4f6f7;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hs-list-text h4 { font-size: 0.82rem; font-weight: 700; color: #111; margin-bottom: 2px; }
+  .hs-list-text p  { font-size: 0.7rem; color: #888; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — SPOT PAGE HEADER
+══════════════════════════════════════ -->
+<div class="page-section">
+  <div class="section-label">Spot Page Hero Header — "Workato Industry Verticals"</div>
+
+  <!-- HERO CARD -->
+  <div class="spot-hero">
+
+    <!-- LEFT: Illustration -->
+    <div class="hero-illustration">
+      <svg width="340" height="210" viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Background subtle grid dots -->
+        <circle cx="20"  cy="20"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="60"  cy="20"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="100" cy="20"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="20"  cy="60"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="60"  cy="60"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="100" cy="60"  r="1.5" fill="#ccc" opacity="0.5"/>
+        <circle cx="140" cy="20"  r="1.5" fill="#ccc" opacity="0.4"/>
+        <circle cx="140" cy="60"  r="1.5" fill="#ccc" opacity="0.4"/>
+
+        <!-- ── FIGURE: legs & shoes ── -->
+        <rect x="148" y="168" width="14" height="36" rx="5" fill="#e8e8e8" stroke="#333" stroke-width="1.2"/>
+        <rect x="167" y="168" width="14" height="36" rx="5" fill="#e8e8e8" stroke="#333" stroke-width="1.2"/>
+        <!-- shoes -->
+        <ellipse cx="155" cy="204" rx="14" ry="6" fill="#222"/>
+        <ellipse cx="174" cy="204" rx="14" ry="6" fill="#222"/>
+
+        <!-- ── FIGURE: trousers ── -->
+        <path d="M143 128 C143 128 140 155 148 168 L162 168 L165 145 L168 168 L181 168 C189 155 186 128 186 128 Z"
+              fill="#e8e8e8" stroke="#333" stroke-width="1.2"/>
+
+        <!-- ── FIGURE: torso (teal shirt) ── -->
+        <path d="M138 80 C134 85 132 100 132 115 L138 128 L192 128 L198 115 C198 100 196 85 192 80 L165 72 Z"
+              fill="#27989F"/>
+        <!-- shirt shading -->
+        <path d="M155 72 L148 128 L182 128 L175 72 Z" fill="#1f7e84" opacity="0.3"/>
+
+        <!-- ── FIGURE: left arm extended (writing) ── -->
+        <path d="M138 88 C128 85 118 82 108 80" stroke="#27989F" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <path d="M138 88 C128 85 118 82 108 80" stroke="#1f7e84" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
+        <!-- hand -->
+        <ellipse cx="106" cy="79" rx="7" ry="6" fill="#f0d0b0"/>
+        <!-- pencil -->
+        <line x1="98" y1="72" x2="112" y2="86" stroke="#555" stroke-width="2.5" stroke-linecap="round"/>
+        <polygon points="98,72 95,68 100,70" fill="#F59E0B"/>
+        <line x1="100" y1="86" x2="112" y2="86" stroke="#555" stroke-width="1" opacity="0.3"/>
+
+        <!-- ── FIGURE: right arm down ── -->
+        <path d="M192 88 C200 95 205 108 204 118" stroke="#27989F" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <path d="M192 88 C200 95 205 108 204 118" stroke="#1f7e84" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
+        <!-- right hand -->
+        <ellipse cx="204" cy="120" rx="6" ry="6" fill="#f0d0b0"/>
+
+        <!-- ── FIGURE: neck & head ── -->
+        <rect x="160" y="60" width="10" height="14" rx="4" fill="#f0d0b0"/>
+        <!-- head -->
+        <ellipse cx="165" cy="50" rx="20" ry="22" fill="#f0d0b0"/>
+        <!-- hair -->
+        <path d="M145 40 C145 28 155 24 165 24 C175 24 185 28 185 40 C185 33 180 26 165 26 C150 26 145 33 145 40 Z"
+              fill="#222"/>
+        <!-- ear -->
+        <ellipse cx="145" cy="50" rx="4" ry="5" fill="#f0d0b0" stroke="#e0b898" stroke-width="0.8"/>
+
+        <!-- ── BOARD / DIAGRAM on the wall ── -->
+        <!-- main board -->
+        <rect x="30" y="30" width="100" height="120" rx="4" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+        <!-- board header bar -->
+        <rect x="30" y="30" width="100" height="14" rx="4" fill="#e0e0e0"/>
+        <!-- horizontal lines (content) -->
+        <line x1="40" y1="58" x2="120" y2="58" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="40" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="40" y1="82" x2="115" y2="82" stroke="#ccc" stroke-width="1.5"/>
+
+        <!-- ── DIAGRAM: workflow nodes ── -->
+        <!-- top node box -->
+        <rect x="52" y="90" width="40" height="18" rx="4" fill="#e4f6f7" stroke="#27989F" stroke-width="1.3"/>
+        <text x="72" y="103" text-anchor="middle" font-size="7" fill="#27989F" font-weight="700" font-family="Segoe UI,sans-serif">DATA</text>
+        <!-- arrow down -->
+        <line x1="72" y1="108" x2="72" y2="118" stroke="#27989F" stroke-width="1.3"/>
+        <polygon points="72,120 69,116 75,116" fill="#27989F"/>
+        <!-- middle connector box -->
+        <rect x="52" y="120" width="40" height="18" rx="4" fill="#27989F"/>
+        <text x="72" y="133" text-anchor="middle" font-size="7" fill="white" font-weight="700" font-family="Segoe UI,sans-serif">FLOW</text>
+
+        <!-- ── FLOATING ELEMENTS ── -->
+        <!-- Gear circle (top right area) -->
+        <circle cx="235" cy="42" r="24" fill="#f0f0f0" stroke="#ccc" stroke-width="1.2"/>
+        <!-- gear teeth -->
+        <circle cx="235" cy="42" r="14" fill="none" stroke="#27989F" stroke-width="2"/>
+        <circle cx="235" cy="42" r="6"  fill="#27989F" opacity="0.25"/>
+        <!-- gear teeth lines -->
+        <line x1="235" y1="26" x2="235" y2="30" stroke="#27989F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="235" y1="54" x2="235" y2="58" stroke="#27989F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="219" y1="42" x2="223" y2="42" stroke="#27989F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="247" y1="42" x2="251" y2="42" stroke="#27989F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="224" y1="31" x2="227" y2="34" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="243" y1="50" x2="246" y2="53" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="246" y1="31" x2="243" y2="34" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="224" y1="50" x2="227" y2="53" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- connector line gear → board -->
+        <line x1="211" y1="46" x2="145" y2="60" stroke="#27989F" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+
+        <!-- Lightbulb circle (mid right) -->
+        <circle cx="270" cy="100" r="28" fill="#f0f0f0" stroke="#ccc" stroke-width="1.2"/>
+        <!-- bulb outline -->
+        <path d="M270 82 C262 82 256 88 256 96 C256 103 260 107 263 111 L263 117 L277 117 L277 111 C280 107 284 103 284 96 C284 88 278 82 270 82 Z"
+              fill="none" stroke="#27989F" stroke-width="1.6"/>
+        <!-- base of bulb -->
+        <line x1="264" y1="117" x2="276" y2="117" stroke="#27989F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="265" y1="121" x2="275" y2="121" stroke="#27989F" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- inner shine lines -->
+        <line x1="264" y1="92" x2="260" y2="88" stroke="#27989F" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+        <line x1="270" y1="90" x2="270" y2="85" stroke="#27989F" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+        <line x1="276" y1="92" x2="280" y2="88" stroke="#27989F" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+        <!-- teal fill glow -->
+        <path d="M267 98 C264 98 262 100 262 103 C262 106 264 108 267 109 L270 112 L273 109 C276 108 278 106 278 103 C278 100 276 98 273 98 Z"
+              fill="#27989F" opacity="0.18"/>
+
+        <!-- connector line lightbulb → figure -->
+        <line x1="242" y1="108" x2="210" y2="108" stroke="#27989F" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+
+        <!-- Workato W circle (bottom right) -->
+        <circle cx="260" cy="163" r="26" fill="#e4f6f7" stroke="#27989F" stroke-width="1.5"/>
+        <!-- W mark -->
+        <text x="260" y="172" text-anchor="middle" font-size="24" font-weight="800" fill="#27989F" font-family="Segoe UI,sans-serif">w</text>
+
+        <!-- 3-dot progress indicator -->
+        <circle cx="218" cy="182" r="4" fill="#27989F"/>
+        <circle cx="232" cy="182" r="4" fill="#ccc"/>
+        <circle cx="246" cy="182" r="4" fill="#ccc"/>
+
+        <!-- connector line W → figure -->
+        <line x1="234" y1="163" x2="200" y2="150" stroke="#27989F" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+
+        <!-- teal accent blob (behind figure) -->
+        <ellipse cx="150" cy="160" rx="28" ry="20" fill="#27989F" opacity="0.12"/>
+
+        <!-- small floating teal blobs decorative -->
+        <ellipse cx="60"  cy="175" rx="16" ry="10" fill="#27989F" opacity="0.08"/>
+        <ellipse cx="300" cy="55"  rx="8"  ry="8"  fill="#27989F" opacity="0.08"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT: Text -->
+    <div class="hero-text">
+      <h1>Workato Industry Verticals</h1>
+      <p>Your one-stop hub for the latest market trends, sales enablement, pitch decks, customer stories, and campaign tools — organized by industry.</p>
+      <a class="hero-cta" href="#">
+        View Sales Plays
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- NAV PILL BAR -->
+  <div class="spot-nav">
+    <div class="nav-pill active">Market Trends</div>
+    <div class="nav-pill">Enablement</div>
+    <div class="nav-pill">Pitches</div>
+    <div class="nav-pill">Customer Stories</div>
+    <div class="nav-pill">Demos</div>
+    <div class="nav-pill">Campaigns</div>
+    <div class="nav-pill outlined">+ Add to My List</div>
+  </div>
+
+</div><!-- end hero section -->
+
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — ICONS (bigger, near edge)
+══════════════════════════════════════ -->
+<div class="page-section">
+  <div class="section-label">Industry Icons v3 — Art fills circle edge (97px)</div>
+
+  <div class="icon-grid" style="background:#f8fdfd; padding:28px; border-radius:12px; border:1px solid #e0f4f5;">
+
+    <!-- INDUSTRY VERTICALS MAIN -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="16" stroke="#27989F" stroke-width="1.5" fill="none"/>
+          <ellipse cx="26" cy="26" rx="7" ry="16" stroke="#27989F" stroke-width="1.3" fill="none"/>
+          <line x1="10" y1="26" x2="42" y2="26" stroke="#27989F" stroke-width="1.3"/>
+          <ellipse cx="26" cy="21" rx="13" ry="3.5" stroke="#27989F" stroke-width="1.1" fill="none"/>
+          <ellipse cx="26" cy="31" rx="13" ry="3.5" stroke="#27989F" stroke-width="1.1" fill="none"/>
+          <circle cx="26" cy="10" r="2.8" fill="#27989F"/>
+          <circle cx="42" cy="26" r="2.8" fill="#27989F"/>
+          <circle cx="10" cy="26" r="2.8" fill="#27989F"/>
+          <circle cx="26" cy="42" r="2.8" fill="#27989F"/>
+          <circle cx="26" cy="26" r="5" fill="#27989F"/>
+          <text x="26" y="29.5" text-anchor="middle" font-size="6" font-weight="800" fill="white" font-family="Segoe UI,sans-serif">W</text>
+        </svg>
+      </div>
+      <span>Industry<br>Verticals</span>
+    </div>
+
+    <!-- FINANCIAL SERVICES — bank building -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <rect x="7" y="35" width="38" height="3.5" rx="1" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="10" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <rect x="18" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <rect x="26" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <rect x="34" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <path d="M5 21 L26 9 L47 21" stroke="#27989F" stroke-width="1.7" stroke-linejoin="round" fill="none"/>
+          <rect x="5" y="38.5" width="42" height="3.5" rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <circle cx="26" cy="15" r="4.5" fill="#e4f6f7" stroke="#27989F" stroke-width="1.4"/>
+          <text x="26" y="18.5" text-anchor="middle" font-size="5.5" font-weight="800" fill="#27989F" font-family="Segoe UI,sans-serif">$</text>
+        </svg>
+      </div>
+      <span>Financial<br>Services</span>
+    </div>
+
+    <!-- RETAIL / CPG -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <path d="M12 19 L8 44 H44 L40 19 Z" stroke="#27989F" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+          <path d="M18 19 C18 12 21 9 26 9 C31 9 34 12 34 19" stroke="#27989F" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+          <line x1="11" y1="30" x2="41" y2="30" stroke="#27989F" stroke-width="1.2" opacity="0.45"/>
+          <rect x="31" y="6" width="14" height="10" rx="2" fill="#e4f6f7" stroke="#27989F" stroke-width="1.3"/>
+          <circle cx="34.5" cy="10" r="1.2" fill="#27989F"/>
+          <line x1="37" y1="10" x2="43" y2="10" stroke="#27989F" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="37" y1="13" x2="43" y2="13" stroke="#27989F" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Retail / CPG</span>
+    </div>
+
+    <!-- MANUFACTURING — factory building -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <path d="M4 43 L4 27 L14 33 L14 27 L24 33 L24 27 L35 27 L35 43 Z"
+                stroke="#27989F" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+          <rect x="27" y="18" width="18" height="25" rx="1.5" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="29" y="11" width="4" height="7"  rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <rect x="37" y="13" width="4" height="5"  rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <path d="M31 10 Q32.5 8 31 6"   stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M39 12 Q40.5 10 39 8"  stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <rect x="29" y="22" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <rect x="38" y="22" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <rect x="32" y="34" width="6" height="9"  rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <line x1="2" y1="43" x2="50" y2="43" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Manufacturing</span>
+    </div>
+
+    <!-- INSURANCE — shield + checkmark -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <path d="M26 7 C26 7 9 13 9 13 L9 28 C9 38 16 45 26 48 C36 45 43 38 43 28 L43 13 Z"
+                stroke="#27989F" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+          <path d="M26 12 C26 12 15 17 15 17 L15 28 C15 36 19 41 26 44 C33 41 37 36 37 28 L37 17 Z"
+                stroke="#27989F" stroke-width="1" fill="none" stroke-linejoin="round" opacity="0.3"/>
+          <path d="M19 28 L24 34 L34 21" stroke="#27989F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>Insurance</span>
+    </div>
+
+    <!-- HEALTHCARE — hospital building with cross, NO RED -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <!-- main body -->
+          <rect x="8" y="22" width="36" height="22" rx="1.5" fill="none" stroke="#27989F" stroke-width="1.7"/>
+          <!-- entrance -->
+          <rect x="19" y="33" width="14" height="11" rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <line x1="26" y1="33" x2="26" y2="44" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+          <!-- windows L -->
+          <rect x="11" y="26" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="11" y="34" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <!-- windows R -->
+          <rect x="36" y="26" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="36" y="34" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <!-- cross badge on roof -->
+          <rect x="19" y="10" width="14" height="12" rx="2" fill="#e4f6f7" stroke="#27989F" stroke-width="1.6"/>
+          <line x1="26" y1="12" x2="26" y2="20" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22" y1="16" x2="30" y2="16" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- ground -->
+          <line x1="4" y1="44" x2="48" y2="44" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>Healthcare</span>
+    </div>
+
+    <!-- ENERGY & UTILITIES — pylon -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <line x1="26" y1="6"  x2="26" y2="46" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.35"/>
+          <line x1="14" y1="15" x2="38" y2="15" stroke="#27989F" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="17" y1="24" x2="35" y2="24" stroke="#27989F" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="26" y1="6"  x2="14" y2="15" stroke="#27989F" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="26" y1="6"  x2="38" y2="15" stroke="#27989F" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="18" y1="15" x2="26" y2="24" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <line x1="34" y1="15" x2="26" y2="24" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <path d="M18 24 L12 46 M34 24 L40 46" stroke="#27989F" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="19" y1="35" x2="33" y2="35" stroke="#27989F" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12" y1="46" x2="40" y2="46" stroke="#27989F" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="14" cy="15" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="38" cy="15" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="17" cy="24" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="35" cy="24" r="2.2" fill="#27989F" opacity="0.6"/>
+        </svg>
+      </div>
+      <span>Energy &amp;<br>Utilities</span>
+    </div>
+
+    <!-- MEDIA & TECHNOLOGY — monitor + broadcast -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <rect x="6" y="11" width="38" height="26" rx="3" fill="none" stroke="#27989F" stroke-width="1.7"/>
+          <path d="M20 19 L20 29 L31 24 Z" fill="none" stroke="#27989F" stroke-width="1.6" stroke-linejoin="round"/>
+          <line x1="26" y1="37" x2="26" y2="44"  stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <line x1="18" y1="44" x2="34" y2="44"  stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M39 9  Q45 17 39 25" stroke="#27989F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M42 6  Q50 17 42 28" stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <circle cx="39" cy="17" r="1.8" fill="#27989F" opacity="0.65"/>
+        </svg>
+      </div>
+      <span>Media &amp;<br>Technology</span>
+    </div>
+
+    <!-- LIFE SCIENCES — flask -->
+    <div class="showcase-item">
+      <div class="hs-circle-lg">
+        <svg width="90" height="90" viewBox="0 0 52 52" fill="none">
+          <path d="M19 8 L19 25 L8 41 Q8 45 13 45 L39 45 Q44 45 44 41 L33 25 L33 8 Z"
+                stroke="#27989F" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+          <line x1="17" y1="8" x2="35" y2="8" stroke="#27989F" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M14 37 Q17 35 21 36 Q26 37 31 35 Q35 34 37 37 L39 41 Q39 44 37 45 L15 45 Q13 45 13 42 Z"
+                fill="#27989F" opacity="0.13"/>
+          <circle cx="19" cy="41" r="1.8" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.6"/>
+          <circle cx="27" cy="39" r="2.2" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.5"/>
+          <circle cx="34" cy="42" r="1.4" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.55"/>
+          <!-- molecule -->
+          <circle cx="40" cy="20" r="3"   fill="none" stroke="#27989F" stroke-width="1.2" opacity="0.5"/>
+          <circle cx="47" cy="15" r="2.2" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+          <line x1="43" y1="18" x2="45" y2="16.5" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+        </svg>
+      </div>
+      <span>Life Sciences</span>
+    </div>
+
+  </div><!-- end icon grid -->
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — LIST ROW PREVIEW
+══════════════════════════════════════ -->
+<div class="page-section" style="display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start;">
+
+  <div class="hs-preview" style="max-width:480px; flex:1;">
+    <div class="hs-preview-header">Content Spot — Industry Verticals</div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="16" stroke="#27989F" stroke-width="1.7" fill="none"/>
+          <ellipse cx="26" cy="26" rx="7" ry="16" stroke="#27989F" stroke-width="1.4" fill="none"/>
+          <line x1="10" y1="26" x2="42" y2="26" stroke="#27989F" stroke-width="1.4"/>
+          <ellipse cx="26" cy="21" rx="13" ry="3.5" stroke="#27989F" stroke-width="1.1" fill="none"/>
+          <ellipse cx="26" cy="31" rx="13" ry="3.5" stroke="#27989F" stroke-width="1.1" fill="none"/>
+          <circle cx="26" cy="10" r="2.5" fill="#27989F"/><circle cx="42" cy="26" r="2.5" fill="#27989F"/>
+          <circle cx="10" cy="26" r="2.5" fill="#27989F"/><circle cx="26" cy="42" r="2.5" fill="#27989F"/>
+          <circle cx="26" cy="26" r="5" fill="#27989F"/>
+          <text x="26" y="29.5" text-anchor="middle" font-size="6" font-weight="800" fill="white" font-family="Segoe UI,sans-serif">W</text>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Industry Verticals Hub</h4><p>GTM content, pitch decks, and customer stories by industry vertical.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <rect x="7" y="35" width="38" height="3.5" rx="1" fill="none" stroke="#27989F" stroke-width="1.7"/>
+          <rect x="10" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="18" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="26" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="34" y="21" width="5" height="14" rx="1" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <path d="M5 21 L26 9 L47 21" stroke="#27989F" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+          <rect x="5" y="38.5" width="42" height="3.5" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <circle cx="26" cy="15" r="4.5" fill="#e4f6f7" stroke="#27989F" stroke-width="1.4"/>
+          <text x="26" y="18.5" text-anchor="middle" font-size="5.5" font-weight="800" fill="#27989F" font-family="Segoe UI,sans-serif">$</text>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Financial Services</h4><p>Banking, credit unions, wealth management GTM resources.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <path d="M12 19 L8 44 H44 L40 19 Z" stroke="#27989F" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+          <path d="M18 19 C18 12 21 9 26 9 C31 9 34 12 34 19" stroke="#27989F" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <line x1="11" y1="30" x2="41" y2="30" stroke="#27989F" stroke-width="1.2" opacity="0.45"/>
+          <rect x="31" y="6" width="14" height="10" rx="2" fill="#e4f6f7" stroke="#27989F" stroke-width="1.4"/>
+          <circle cx="34.5" cy="10" r="1.2" fill="#27989F"/>
+          <line x1="37" y1="10" x2="43" y2="10" stroke="#27989F" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="37" y1="13" x2="43" y2="13" stroke="#27989F" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Retail / CPG</h4><p>Ecommerce, supply chain, and customer service automation content.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <path d="M4 43 L4 27 L14 33 L14 27 L24 33 L24 27 L35 27 L35 43 Z" stroke="#27989F" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+          <rect x="27" y="18" width="18" height="25" rx="1.5" fill="none" stroke="#27989F" stroke-width="1.6"/>
+          <rect x="29" y="11" width="4" height="7" rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <rect x="37" y="13" width="4" height="5" rx="1" fill="none" stroke="#27989F" stroke-width="1.4"/>
+          <path d="M31 10 Q32.5 8 31 6"  stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M39 12 Q40.5 10 39 8" stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <rect x="29" y="22" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <rect x="38" y="22" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <rect x="32" y="34" width="6" height="9" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.2"/>
+          <line x1="2" y1="43" x2="50" y2="43" stroke="#27989F" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Manufacturing (Discreet)</h4><p>ERP integration, logistics, and factory operations content.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <path d="M26 7 C26 7 9 13 9 13 L9 28 C9 38 16 45 26 48 C36 45 43 38 43 28 L43 13 Z" stroke="#27989F" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+          <path d="M26 12 C26 12 15 17 15 17 L15 28 C15 36 19 41 26 44 C33 41 37 36 37 28 L37 17 Z" stroke="#27989F" stroke-width="1" fill="none" stroke-linejoin="round" opacity="0.3"/>
+          <path d="M19 28 L24 34 L34 21" stroke="#27989F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Insurance</h4><p>P&amp;C, life, and healthcare payer automation and claims resources.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <rect x="8" y="22" width="36" height="22" rx="1.5" fill="none" stroke="#27989F" stroke-width="1.8"/>
+          <rect x="19" y="33" width="14" height="11" rx="1" fill="none" stroke="#27989F" stroke-width="1.5"/>
+          <line x1="26" y1="33" x2="26" y2="44" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+          <rect x="11" y="26" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="11" y="34" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="36" y="26" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="36" y="34" width="5" height="5" rx="0.8" fill="none" stroke="#27989F" stroke-width="1.3"/>
+          <rect x="19" y="10" width="14" height="12" rx="2" fill="#e4f6f7" stroke="#27989F" stroke-width="1.6"/>
+          <line x1="26" y1="12" x2="26" y2="20" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="22" y1="16" x2="30" y2="16" stroke="#27989F" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="4"  y1="44" x2="48" y2="44" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Healthcare (Providers)</h4><p>Patient journey, EHR integration, and virtual care content.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <line x1="26" y1="6"  x2="26" y2="46" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.35"/>
+          <line x1="14" y1="15" x2="38" y2="15" stroke="#27989F" stroke-width="1.9" stroke-linecap="round"/>
+          <line x1="17" y1="24" x2="35" y2="24" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <line x1="26" y1="6"  x2="14" y2="15" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <line x1="26" y1="6"  x2="38" y2="15" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <line x1="18" y1="15" x2="26" y2="24" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <line x1="34" y1="15" x2="26" y2="24" stroke="#27989F" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <path d="M18 24 L12 46 M34 24 L40 46" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <line x1="19" y1="35" x2="33" y2="35" stroke="#27989F" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="12" y1="46" x2="40" y2="46" stroke="#27989F" stroke-width="1.9" stroke-linecap="round"/>
+          <circle cx="14" cy="15" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="38" cy="15" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="17" cy="24" r="2.2" fill="#27989F" opacity="0.6"/>
+          <circle cx="35" cy="24" r="2.2" fill="#27989F" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Energy &amp; Utilities</h4><p>Grid, renewables, and field service automation resources.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <rect x="6" y="11" width="38" height="26" rx="3" fill="none" stroke="#27989F" stroke-width="1.8"/>
+          <path d="M20 19 L20 29 L31 24 Z" fill="none" stroke="#27989F" stroke-width="1.7" stroke-linejoin="round"/>
+          <line x1="26" y1="37" x2="26" y2="44" stroke="#27989F" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="18" y1="44" x2="34" y2="44" stroke="#27989F" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M39 9  Q45 17 39 25" stroke="#27989F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M42 6  Q50 17 42 28" stroke="#27989F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <circle cx="39" cy="17" r="1.8" fill="#27989F" opacity="0.65"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Media &amp; Technology</h4><p>SaaS, telco, and digital media automation and subscriber content.</p></div>
+    </div>
+
+    <div class="hs-list-row">
+      <div class="hs-list-circle">
+        <svg width="44" height="44" viewBox="0 0 52 52" fill="none">
+          <path d="M19 8 L19 25 L8 41 Q8 45 13 45 L39 45 Q44 45 44 41 L33 25 L33 8 Z" stroke="#27989F" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+          <line x1="17" y1="8" x2="35" y2="8" stroke="#27989F" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M14 37 Q17 35 21 36 Q26 37 31 35 Q35 34 37 37 L39 41 Q39 44 37 45 L15 45 Q13 45 13 42 Z" fill="#27989F" opacity="0.13"/>
+          <circle cx="19" cy="41" r="1.8" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.6"/>
+          <circle cx="27" cy="39" r="2.2" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.5"/>
+          <circle cx="34" cy="42" r="1.4" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.55"/>
+          <circle cx="40" cy="20" r="3"   fill="none" stroke="#27989F" stroke-width="1.2" opacity="0.5"/>
+          <circle cx="47" cy="15" r="2.2" fill="none" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+          <line x1="43" y1="18" x2="45" y2="16.5" stroke="#27989F" stroke-width="1.1" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="hs-list-text"><h4>Life Sciences</h4><p>Pharma, biotech, and clinical trial automation content.</p></div>
+    </div>
+
+  </div><!-- end hs-preview -->
+
+  <div style="flex:0 0 230px; display:flex; flex-direction:column; gap:10px; padding:4px 0;">
+    <p style="font-size:0.75rem; font-weight:700; color:#27989F; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">What's in this file</p>
+    <div style="background:#f8fdfd; border-left:3px solid #27989F; padding:9px 13px; border-radius:0 8px 8px 0;">
+      <p style="font-size:0.75rem; font-weight:700; color:#111; margin-bottom:2px;">Section 1 — Hero Header</p>
+      <p style="font-size:0.7rem; color:#666; line-height:1.5;">Matches the screenshot layout: illustrated figure left, title + CTA right, teal pill nav below.</p>
+    </div>
+    <div style="background:#f8fdfd; border-left:3px solid #27989F; padding:9px 13px; border-radius:0 8px 8px 0;">
+      <p style="font-size:0.75rem; font-weight:700; color:#111; margin-bottom:2px;">Section 2 — Icons v3</p>
+      <p style="font-size:0.7rem; color:#666; line-height:1.5;">SVG art scaled to 90px inside 97px circle — fills close to edge with small visual breathing room.</p>
+    </div>
+    <div style="background:#f8fdfd; border-left:3px solid #27989F; padding:9px 13px; border-radius:0 8px 8px 0;">
+      <p style="font-size:0.75rem; font-weight:700; color:#111; margin-bottom:2px;">Section 3 — List Preview</p>
+      <p style="font-size:0.7rem; color:#666; line-height:1.5;">57px circles with 44px SVG art — how icons render in Highspot spot row view.</p>
+    </div>
+  </div>
+
+</div><!-- end section 3 -->
+
+</body>
+</html>

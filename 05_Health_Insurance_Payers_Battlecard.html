@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workato | Health Insurance Payers — Sales Battlecard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#27989F;--teal-light:#3FB8C0;--teal-dark:#065F69;--black:#000;--card-bg:#0B2D2F;--surface:#1A4A4D;--tp:#FAFAFA;--ts:rgba(250,250,250,0.85);--tm:rgba(250,250,250,0.6);--bd:rgba(39,152,159,0.3);--ok:#10B981;--warn:#F59E0B;--err:#EF4444;--info:#06B6D4;--purp:#8B5CF6}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--black);color:var(--tp);line-height:1.5}
+.bc{max-width:1100px;margin:0 auto;padding:24px}
+.pl{text-align:center;color:var(--tm);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:24px 0 8px}
+.pd{border:none;border-top:1px dashed var(--bd);margin:8px 0 28px}
+.hdr{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--card-bg) 60%,var(--surface) 100%);border-radius:12px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid var(--bd);margin-bottom:18px}
+.hdr-l{flex:1}.hdr .la{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hdr .li{width:28px;height:28px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff}
+.hdr .lt{font-size:16px;font-weight:700;color:var(--teal-light)}
+.hdr h1{font-size:21px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.hdr .st{font-size:12px;color:var(--ts)}
+.hdr-r{text-align:right}
+.hdr .bg{display:inline-block;background:rgba(39,152,159,0.2);border:1px solid var(--bd);padding:5px 14px;border-radius:6px;font-size:10px;font-weight:700;color:var(--teal-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.hdr .vr{font-size:10px;color:var(--tm)}
+.vds{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px}
+.vp{text-align:center;padding:7px 5px;border-radius:7px;font-size:10px;font-weight:700;border:1px solid}
+.vp.ag{background:rgba(6,182,212,0.12);border-color:rgba(6,182,212,0.3);color:var(--info)}
+.vp.ef{background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.3);color:var(--ok)}
+.vp.ri{background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.3);color:var(--warn)}
+.vp.rv{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.3);color:var(--purp)}
+.emcp{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,182,212,0.08));border:1px solid rgba(139,92,246,0.3);border-radius:10px;padding:14px 18px;margin-bottom:16px}
+.emcp h3{font-size:13px;font-weight:700;color:var(--purp);margin-bottom:5px}
+.emcp p{font-size:11px;color:var(--ts);line-height:1.5}
+.sec{background:var(--card-bg);border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.si{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sn{font-size:14px;font-weight:700}.ss{font-size:10px;color:var(--tm);font-weight:500}
+.dl{display:flex;flex-direction:column;gap:8px}
+.di{display:grid;grid-template-columns:26px 1fr auto;align-items:start;gap:9px;padding:9px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border-left:3px solid var(--teal)}
+.dn{width:22px;height:22px;background:var(--teal-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--teal-light);flex-shrink:0}
+.dt{font-size:12px;color:var(--ts);line-height:1.45}
+.dv{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;margin-top:1px}
+.dv.ag{background:rgba(6,182,212,0.15);color:var(--info)}.dv.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.dv.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.dv.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.ug{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.uc{padding:14px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);border-top:3px solid}
+.uc.ag{border-top-color:var(--info)}.uc.ef{border-top-color:var(--ok)}.uc.ri{border-top-color:var(--warn)}.uc.rv{border-top-color:var(--purp)}
+.uc h4{font-size:12px;font-weight:700;margin-bottom:5px}.uc p{font-size:11px;color:var(--ts);line-height:1.4}
+.ut{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;margin-top:6px}
+.ut.ag{background:rgba(6,182,212,0.15);color:var(--info)}.ut.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.ut.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.ut.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{padding:14px;background:linear-gradient(135deg,rgba(39,152,159,0.08),rgba(11,45,47,0.9));border-radius:7px;border:1px solid var(--bd);display:flex;flex-direction:column;gap:4px}
+.pc .pt{font-size:9px;color:var(--tm);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.pc .pn{font-size:14px;font-weight:800;color:var(--teal-light)}
+.pc .ps{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--teal),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pc .pd2{font-size:11px;color:var(--ts)}
+.eg{display:flex;flex-wrap:wrap;gap:6px}
+.ec{padding:6px 12px;background:var(--surface);border:1px solid var(--bd);border-radius:5px;font-size:11px;font-weight:600;color:var(--ts)}
+.ec.f{background:rgba(39,152,159,0.15);border-color:var(--teal);color:var(--teal-light)}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dc{padding:12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);text-align:center}
+.dc .dl2{font-size:10px;font-weight:800;color:var(--teal-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.dc .dx{font-size:10px;color:var(--tm);line-height:1.35}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gb{margin-top:14px;padding:10px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd)}
+.gb .gl{font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.gb .gn{display:flex;gap:10px;flex-wrap:wrap}.gb .gn span{font-size:11px;font-weight:600;color:var(--ts)}
+.gb .go{font-size:9px;color:var(--tm);margin-top:3px}
+.qb{margin-top:12px;padding:12px 16px;background:rgba(139,92,246,0.06);border-left:3px solid var(--purp);border-radius:0 7px 7px 0}
+.qb .qq{font-size:11px;color:var(--ts);font-style:italic;line-height:1.45}.qb .qa{font-size:10px;color:var(--tm);margin-top:5px;font-weight:600}
+.gn-box{margin-top:12px;padding:10px 12px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-radius:7px}
+.gn-box .gn-title{font-size:10px;font-weight:700;color:var(--purp);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.gn-box .gn-list{display:flex;flex-wrap:wrap;gap:6px}
+.gn-box .gn-tag{font-size:10px;font-weight:600;color:var(--ts);padding:3px 8px;background:rgba(139,92,246,0.1);border-radius:4px}
+@media print{body{background:#fff;color:#1a1a1a}.bc{page-break-after:always}.pd{page-break-before:always}}
+</style>
+</head>
+<body>
+<div class="bc">
+
+<div class="pl">Page 1 of 2 — Health Insurance Payers Sales Battlecard</div>
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="la"><div class="li">W</div><div class="lt">workato</div></div>
+    <h1>Health Insurance Payers</h1>
+    <div class="st">Members activated. Claims auto-adjudicated. Stars earned. &bull; Sales Battlecard — Sellers & Partners</div>
+  </div>
+  <div class="hdr-r">
+    <div class="bg">Insurance Sub-Vertical</div>
+    <div class="vr">v2.0 &bull; Q1 FY27 &bull; WSS Aligned</div>
+  </div>
+</div>
+<div class="vds"><div class="vp ag">Enterprise Agility</div><div class="vp ef">Efficiency & OrCA</div><div class="vp ri">Risk Reduction</div><div class="vp rv">Revenue Growth</div></div>
+<div class="emcp">
+  <h3>Enterprise MCP for Health Payers</h3>
+  <p>HIPAA BAA available. SOC 2 Type II certified. Enterprise MCP connects claims, eligibility, PBM, and care management systems on a single compliant orchestration platform. Prior authorization workflows become secure MCP servers with human-in-the-loop for exception cases. OrCA auto-scales during open enrollment (10-50x normal volume) without provisioning infrastructure.</p>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(6,182,212,0.15);color:var(--info)">?</div><div><div class="sn">Discovery Questions</div><div class="ss">WSS-aligned — Claims, Prior Auth, Eligibility, Star Ratings personas</div></div></div>
+  <div class="dl">
+    <div class="di"><div class="dn">1</div><div class="dt">What is your current auto-adjudication rate for routine claims — and how much does it cost you per manually adjudicated claim ($6-12 avg)? What happens to your backlog during peak open enrollment periods when volume spikes 10-50x?</div><div class="dv ef">Efficiency</div></div>
+    <div class="di"><div class="dn">2</div><div class="dt">CMS is mandating FHIR-based prior authorization APIs. How far along is your PA automation infrastructure — and how many of your PA requests are still processed manually (industry avg: 70%) at $11/request?</div><div class="dv ri">Risk</div></div>
+    <div class="di"><div class="dn">3</div><div class="dt">When a new member enrolls, how many systems need eligibility loaded (typically 8-10: claims, PBM, dental, vision, care management) — and what's your activation cycle time? How many downstream claim denials trace back to eligibility errors?</div><div class="dv ag">Agility</div></div>
+    <div class="di"><div class="dn">4</div><div class="dt">For your Medicare Advantage population, how are you identifying and closing HEDIS care gaps before the measurement period ends — and is your outreach real-time or retrospective batch? Each 0.5-star improvement can represent significant CMS quality bonus payments.</div><div class="dv rv">Revenue</div></div>
+    <div class="di"><div class="dn">5</div><div class="dt">Administrative costs represent 25-30% of health insurance spending. What percentage of your HR, Finance, and IT back-office processes are still manual — and how is that affecting your ability to meet MLR targets and invest in member-facing innovation?</div><div class="dv ef">Efficiency</div></div>
+  </div>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">▶</div><div><div class="sn">Targeted Use Cases</div><div class="ss">Storybook areas — Claims, Prior Auth & Member CX, Eligibility & Provider, Star Ratings</div></div></div>
+  <div class="ug">
+    <div class="uc ef"><h4>Claims Auto-Adjudication</h4><p>Claims Adjudication Genie: intake → eligibility check → benefit rules validation → auto-adjudication → EOB → payment trigger. Target: 80%+ auto-adjudication rate. FWA Detection Genie flags anomalous billing for investigation with audit trail.</p><span class="ut ef">Efficiency & OrCA</span></div>
+    <div class="uc ri"><h4>Prior Authorization & Member Experience</h4><p>Prior Authorization Genie: PA request → clinical criteria check → auto-approve routine / human review exception → FHIR API status update. Support Genie for 24/7 member inquiries. CMS FHIR mandate compliance without a multi-year program.</p><span class="ut ri">Risk Reduction</span></div>
+    <div class="uc ag"><h4>Eligibility & Provider Operations</h4><p>Eligibility Genie: new enrollment → load across claims + PBM + dental + vision + care management simultaneously. Member activation in hours, not days. Zero eligibility errors. Provider credentialing and directory accuracy automation.</p><span class="ut ag">Enterprise Agility</span></div>
+    <div class="uc rv"><h4>Star Ratings & HEDIS Care Gaps</h4><p>Care Gap Genie: real-time claims + FHIR clinical data → gap identification → member outreach via preferred channel → provider scheduling. HEDIS reporting automation. Each 0.5-star improvement = significant CMS quality bonus revenue.</p><span class="ut rv">Revenue Growth</span></div>
+  </div>
+</div>
+
+<div class="pl">Page 2 of 2 — Health Insurance Payers Sales Battlecard</div>
+<hr class="pd">
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(139,92,246,0.15);color:var(--purp)">★</div><div><div class="sn">Customer Proof Points</div><div class="ss">Salesforce-verified health payer customers</div></div></div>
+  <div class="pg">
+    <div class="pc"><div class="pt">Health Payer — NYC</div><div class="pn">Healthfirst</div><div class="ps">$733K ARR</div><div class="pd2">575 active recipes, 3+ BUs. Acqueon, Amazon DynamoDB, Workbot, GitHub CI/CD, Event Streams, APIM. Largest health payer customer by ARR.</div></div>
+    <div class="pc"><div class="pt">Life Insurance & Financial Planning</div><div class="pn">Northwestern Mutual</div><div class="ps">$101K ARR</div><div class="pd2">Zendesk, ServiceNow, Splunk, No-Auth connections. Enterprise-wide automation at one of America's largest life insurance organizations.</div></div>
+    <div class="pc"><div class="pt">InsurTech — AI-Native</div><div class="pn">Lemonade</div><div class="ps">$104K ARR, 227 Recipes</div><div class="pd2">Anthropic Claude + Cisco Meraki + Ashby + Brex + Navan. Digital-first insurance operations with AI-native claims and policy workflows.</div></div>
+    <div class="pc"><div class="pt">Health Payer — Digital</div><div class="pn">Oscar Health</div><div class="ps">Digital-First Payer</div><div class="pd2">$92K ARR. Okta, Salesforce, Google Workspace, Workbot. Technology-driven health insurance platform with member-first digital experience.</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(39,152,159,0.15);color:var(--teal-light)">⚙</div><div><div class="sn">Ecosystem Connectors</div><div class="ss">Claims + eligibility + PBM + clinical + FHIR</div></div></div>
+    <div class="eg">
+      <div class="ec f">HealthEdge HealthRules</div><div class="ec f">FACETS / TriZetto</div><div class="ec f">QNXT</div><div class="ec f">Availity</div><div class="ec f">Change Healthcare</div>
+      <div class="ec">Salesforce Health Cloud</div><div class="ec">Workday</div><div class="ec">Oracle</div><div class="ec">SAP</div><div class="ec">Snowflake</div><div class="ec">Epic (FHIR R4)</div><div class="ec">Cerner/Oracle Health</div><div class="ec">Acqueon</div><div class="ec">Express Scripts/Evernorth</div><div class="ec">Cotiviti</div><div class="ec">CAQH ProView</div><div class="ec">Inovalon</div><div class="ec">Health Catalyst</div><div class="ec">DynamoDB</div>
+    </div>
+    <div class="gn-box"><div class="gn-title">Workato Genies</div><div class="gn-list"><span class="gn-tag">Claims Adjudication Genie</span><span class="gn-tag">FWA Detection Genie</span><span class="gn-tag">Prior Authorization Genie</span><span class="gn-tag">Support Genie</span><span class="gn-tag">Eligibility Genie</span><span class="gn-tag">Care Gap Genie</span><span class="gn-tag">HEDIS Reporting Genie</span></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">⚡</div><div><div class="sn">Defensible Differentiators</div><div class="ss">SPEED • POWER • SCALE</div></div></div>
+    <div class="dg">
+      <div class="dc"><div class="dl2">Speed</div><div class="dx">HealthEdge, FACETS, QNXT connectors. FHIR R4 connectivity. Pre-built clinical system integrations.</div></div>
+      <div class="dc"><div class="dl2">Power</div><div class="dx">Enterprise MCP + HIPAA BAA. Human-in-the-loop for PA/claims. Zero downtime during open enrollment.</div></div>
+      <div class="dc"><div class="dl2">Scale</div><div class="dx">OrCA auto-scales 10-50x for open enrollment. No capacity planning. SOC 2. FHIR mandate compliance.</div></div>
+    </div>
+    <div class="gb"><div class="gl">GSI Partners</div><div class="gn"><span>Accenture</span><span>Deloitte</span><span>PwC</span><span>Capgemini</span></div><div class="go">+ Regional SIs: healthcare payer technology specialists</div></div>
+    <div class="gb"><div class="gl">Primary Competitors</div><div class="gn"><span>UiPath (RPA)</span><span>Pega (BPM)</span><span>MuleSoft</span><span>ServiceNow (adjacent)</span></div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

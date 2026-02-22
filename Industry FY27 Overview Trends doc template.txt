@@ -1,0 +1,232 @@
+﻿Industry Overview ‘Template’
+
+
+Chapter 1: Industry Definition & Summary
+* Industry Overview & Scope
+* Sub-Segments (with market sizing where available)
+* Key Business Drivers & Priorities
+* Regulatory Environment & Compliance Requirements
+Chapter 2: Current Industry Trends
+* Macro-Economic & Market Trends
+* Technology Adoption Trends
+* Customer/Consumer Behavior Shifts
+* Workforce & Operational Trends
+* Data & Analytics Trends
+* dIndustry-Specific Analyst Data (Gartner, Forrester, etc.)
+Chapter 3: Current AI/Automation/Orchestration Landscape
+* Current State of Automation Adoption
+* Existing AI Use Cases in Production
+* Integration & Orchestration Maturity
+* Barriers to Adoption
+Chapter 4: Target Personas
+* Primary Buyer Personas: Primary Value Drivers / Pain Points / Negative efforts / Desired outcomes / solution requirements / workato differentiators. 
+* Secondary Personas  / Pain Points / Desired value & outcomes (Influencers/Users)
+________________
+Chapter 5: High-Potential AI & Automation Use Cases[a]
+* Customer facing  Use Cases (Customer-Facing)
+* Back-Office Use Cases (Finance, HR, IT)
+* Industry-Specific Use Cases
+* Workato Solution Mapping (Recipes, Genies, MCP)
+Chapter 6: Technology Ecosystem Overview
+* Core Systems of Record
+* Major Software Players & Vendors
+* Integration Patterns & Requirements
+* Partner Ecosystem (GSIs, Regional SIs that are aligned to use cases or industry)
+* Workato Connector & EMCP Coverage
+Chapter 7: Competitive Landscape[b]
+* Direct Competitors (iPaaS, Automation)
+* Adjacent Competitors (RPA, Point Solutions)
+* Competitor Positioning by Segment
+* Workato Competitive Advantages 
+* Competitive Weaknesses & Mitigation
+Chapter 8: Customer Proof & References[c]
+* Approved Customer Logos
+* Case Studies & Success Stories
+* Customer Quotes
+* Reference Customers by Segment
+
+
+[a]Enterprise Agility Use Cases
+Goal: Accelerate change safely, reduce time to first value
+Customer-Facing Use Cases:
+
+
+[Banking Example] Digital loan origination (Salesforce → nCino → Core Banking)
+
+
+Current State: 7-14 day manual processing, 23% abandonment
+Negative Effects: $4.2M lost revenue, poor customer experience
+Desired State: Same-day decisioning, 90% automation
+Business Outcomes: 60% faster processing, 85% reduction in abandonment
+How Workato Does It: Enterprise MCP + Genies orchestrate across systems
+Metrics: Time to deploy (hours vs. days), developer ramp time, # of citizen builders
+
+
+
+
+
+
+Back-Office Use Cases:
+
+
+[Banking Example] Automated compliance reporting
+
+
+Current State: Manual data aggregation across 15+ systems
+How Workato Does It: Fast Build & Delivery Experience + Extensive Connectivity
+Metrics: Report generation time (4 hours → 15 minutes)
+
+
+
+
+
+
+Industry-Specific Use Cases:
+
+
+[Banking Example] Real-time fraud detection orchestration
+
+
+How Workato Does It: Enterprise Agentic AI + Cloud Native Autoscaling
+
+
+
+
+
+
+Workato Solution Mapping:
+
+
+Recipes: Pre-built banking integrations
+Genies: Sales Genie, Support Genie, Compliance Genie
+MCP: 100+ enterprise MCP servers for instant AI agent connectivity
+
+
+
+
+Efficiency & OrCA Use Cases
+Goal: Do more with less, enable economic growth
+Customer-Facing Use Cases:
+
+
+[Banking Example] Automated customer onboarding (KYC/AML)
+
+
+Current State: 5-7 days, 3 FTEs per 100 applications
+Desired State: 24-hour onboarding, 1 FTE per 300 applications
+How Workato Does It: Federated Model (business users build workflows) + OrCA
+Metrics: Cost per onboarding ($120 → $35), FTE savings
+
+
+
+
+
+
+Back-Office Use Cases:
+
+
+[Banking Example] Invoice processing & payment reconciliation
+
+
+How Workato Does It: Operational Cost Architecture (consumption-based pricing)
+Metrics: Transaction processing cost reduction (40% TCO savings)
+
+
+
+
+
+
+
+
+Risk Reduction Use Cases
+Goal: Govern at scale, ensure compliance
+Customer-Facing Use Cases:
+
+
+[Banking Example] Secure payment orchestration with audit trails
+
+
+Current Sta
+[b]Chapter 7: Competitive Landscape ⭐ WSS-ALIGNED
+New Structure: Frame competition through WSS Value Drivers & Differentiators
+7A: Competitive Positioning by Value Driver
+When Competing on Enterprise Agility:
+vs. MuleSoft:
+
+
+Their Position: Developer-first, API-led connectivity
+Workato Counter: Business-led automation with AI, 10x faster deployment
+Trap-Setting Question: "How long does it take your business teams to get new integrations from IT after they submit a request?"
+Differentiators: SPEED (Fast Build & Delivery) + POWER (Enterprise MCP)
+Proof: "Atlassian accelerated ERP transformation by 40% vs. legacy iPaaS"
+
+
+vs. Boomi:
+
+
+Their Position: Established iPaaS, large customer base
+Workato Counter: Cloud-native AI orchestration, not bolt-on AI
+Trap-Setting Question: "What happens when you need to scale during peak transaction periods?"
+Differentiators: SPEED (Cloud Native Autoscaling) + POWER (Agentic AI)
+
+
+
+
+When Competing on Efficiency & OrCA:
+vs. MuleSoft:
+
+
+Their Position: Enterprise-grade, mission-critical
+Workato Counter: 40% lower TCO, consumption-based pricing
+Trap-Setting Question: "What's your current cost per integration, including infrastructure, licenses, and maintenance?"
+Differentiators: SCALE (OrCA) + SPEED (Fast Build = lower services costs)
+Proof: "$150K vs. $250K annually for 100 integrations"
+
+
+vs. Build In-House:
+
+
+Their Position: "We have developers, we can build it"
+Workato Counter: Hidden costs of maintenance, opportunity cost
+Trap-Setting Question: "How many developers are dedicated to integration maintenance vs. building new capabilities?"
+Differentiators: SCALE (Federated Model) + SPEED (Extensive Connectivity)
+
+
+
+
+When Competing on Risk Reduction:
+vs. MuleSoft / Boomi:
+
+
+Their Position: Enterprise security certifications
+Workato Counter: Zero downtime upgrades, no regression testing required
+Trap-Setting Question: "How do planned upgrades impact your business planning and testing cycles?"
+Differentiators: POWER (Zero Downtime Upgrades, Enterprise Security) + SCALE (Governance)
+Proof: "Village
+[c]Enterprise Agility Proof Points:
+
+
+Atlassian: 40% faster ERP transformation vs. legacy iPaaS
+Gonzaga University: Significantly more automation builders, reduced integration delivery time
+Unity: Eliminated hundreds of applications, faster response to business change
+
+
+Efficiency & OrCA Proof Points:
+
+
+Samsara: Doubled IT service delivery in weeks, supporting massive data volumes
+Persefoni: Deployed AI-enabled support in days, scaled productivity without hiring
+
+
+Risk Reduction Proof Points:
+
+
+Village Roadshow: Zero downtime during major releases (Barbenheimer weekend)
+Wirewheel: Complete audit trail and compliance automation
+
+
+Revenue Growth Proof Points:
+
+
+Lucid Motors: 200+ capabilities delivered in 18 months, premium customer experience
+Lever: Integration development in less than half the time

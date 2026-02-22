@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workato | Wealth & Asset Management — Sales Battlecard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#27989F;--teal-light:#3FB8C0;--teal-dark:#065F69;--black:#000;--card-bg:#0B2D2F;--surface:#1A4A4D;--tp:#FAFAFA;--ts:rgba(250,250,250,0.85);--tm:rgba(250,250,250,0.6);--bd:rgba(39,152,159,0.3);--ok:#10B981;--warn:#F59E0B;--err:#EF4444;--info:#06B6D4;--purp:#8B5CF6}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--black);color:var(--tp);line-height:1.5}
+.bc{max-width:1100px;margin:0 auto;padding:24px}
+.pl{text-align:center;color:var(--tm);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:24px 0 8px}
+.pd{border:none;border-top:1px dashed var(--bd);margin:8px 0 28px}
+.hdr{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--card-bg) 60%,var(--surface) 100%);border-radius:12px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid var(--bd);margin-bottom:18px}
+.hdr-l{flex:1}.hdr .la{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hdr .li{width:28px;height:28px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff}
+.hdr .lt{font-size:16px;font-weight:700;color:var(--teal-light)}
+.hdr h1{font-size:21px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.hdr .st{font-size:12px;color:var(--ts)}
+.hdr-r{text-align:right}
+.hdr .bg{display:inline-block;background:rgba(39,152,159,0.2);border:1px solid var(--bd);padding:5px 14px;border-radius:6px;font-size:10px;font-weight:700;color:var(--teal-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.hdr .vr{font-size:10px;color:var(--tm)}
+.vds{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px}
+.vp{text-align:center;padding:7px 5px;border-radius:7px;font-size:10px;font-weight:700;border:1px solid}
+.vp.ag{background:rgba(6,182,212,0.12);border-color:rgba(6,182,212,0.3);color:var(--info)}
+.vp.ef{background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.3);color:var(--ok)}
+.vp.ri{background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.3);color:var(--warn)}
+.vp.rv{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.3);color:var(--purp)}
+.emcp{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,182,212,0.08));border:1px solid rgba(139,92,246,0.3);border-radius:10px;padding:14px 18px;margin-bottom:16px}
+.emcp h3{font-size:13px;font-weight:700;color:var(--purp);margin-bottom:5px}
+.emcp p{font-size:11px;color:var(--ts);line-height:1.5}
+.sec{background:var(--card-bg);border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.si{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sn{font-size:14px;font-weight:700}.ss{font-size:10px;color:var(--tm);font-weight:500}
+.dl{display:flex;flex-direction:column;gap:8px}
+.di{display:grid;grid-template-columns:26px 1fr auto;align-items:start;gap:9px;padding:9px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border-left:3px solid var(--teal)}
+.dn{width:22px;height:22px;background:var(--teal-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--teal-light);flex-shrink:0}
+.dt{font-size:12px;color:var(--ts);line-height:1.45}
+.dv{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;margin-top:1px}
+.dv.ag{background:rgba(6,182,212,0.15);color:var(--info)}.dv.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.dv.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.dv.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.ug{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.uc{padding:14px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);border-top:3px solid}
+.uc.ag{border-top-color:var(--info)}.uc.ef{border-top-color:var(--ok)}.uc.ri{border-top-color:var(--warn)}.uc.rv{border-top-color:var(--purp)}
+.uc h4{font-size:12px;font-weight:700;margin-bottom:5px}.uc p{font-size:11px;color:var(--ts);line-height:1.4}
+.ut{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;margin-top:6px}
+.ut.ag{background:rgba(6,182,212,0.15);color:var(--info)}.ut.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.ut.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.ut.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{padding:14px;background:linear-gradient(135deg,rgba(39,152,159,0.08),rgba(11,45,47,0.9));border-radius:7px;border:1px solid var(--bd);display:flex;flex-direction:column;gap:4px}
+.pc .pt{font-size:9px;color:var(--tm);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.pc .pn{font-size:14px;font-weight:800;color:var(--teal-light)}
+.pc .ps{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--teal),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pc .pd2{font-size:11px;color:var(--ts)}
+.eg{display:flex;flex-wrap:wrap;gap:6px}
+.ec{padding:6px 12px;background:var(--surface);border:1px solid var(--bd);border-radius:5px;font-size:11px;font-weight:600;color:var(--ts)}
+.ec.f{background:rgba(39,152,159,0.15);border-color:var(--teal);color:var(--teal-light)}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dc{padding:12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);text-align:center}
+.dc .dl2{font-size:10px;font-weight:800;color:var(--teal-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.dc .dx{font-size:10px;color:var(--tm);line-height:1.35}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gb{margin-top:14px;padding:10px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd)}
+.gb .gl{font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.gb .gn{display:flex;gap:10px;flex-wrap:wrap}.gb .gn span{font-size:11px;font-weight:600;color:var(--ts)}
+.gb .go{font-size:9px;color:var(--tm);margin-top:3px}
+.qb{margin-top:12px;padding:12px 16px;background:rgba(139,92,246,0.06);border-left:3px solid var(--purp);border-radius:0 7px 7px 0}
+.qb .qq{font-size:11px;color:var(--ts);font-style:italic;line-height:1.45}.qb .qa{font-size:10px;color:var(--tm);margin-top:5px;font-weight:600}
+.gn-box{margin-top:12px;padding:10px 12px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-radius:7px}
+.gn-box .gn-title{font-size:10px;font-weight:700;color:var(--purp);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.gn-box .gn-list{display:flex;flex-wrap:wrap;gap:6px}
+.gn-box .gn-tag{font-size:10px;font-weight:600;color:var(--ts);padding:3px 8px;background:rgba(139,92,246,0.1);border-radius:4px}
+@media print{body{background:#fff;color:#1a1a1a}.bc{page-break-after:always}.pd{page-break-before:always}}
+</style>
+</head>
+<body>
+<div class="bc">
+
+<div class="pl">Page 1 of 2 — Wealth & Asset Management Sales Battlecard</div>
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="la"><div class="li">W</div><div class="lt">workato</div></div>
+    <h1>Wealth & Asset Management</h1>
+    <div class="st">More alpha. Less administration. &bull; Sales Battlecard — Sellers & Partners</div>
+  </div>
+  <div class="hdr-r">
+    <div class="bg">FinServ Sub-Vertical</div>
+    <div class="vr">v2.0 &bull; Q1 FY27 &bull; WSS Aligned</div>
+  </div>
+</div>
+<div class="vds"><div class="vp ag">Enterprise Agility</div><div class="vp ef">Efficiency & OrCA</div><div class="vp ri">Risk Reduction</div><div class="vp rv">Revenue Growth</div></div>
+<div class="emcp">
+  <h3>Enterprise MCP for Wealth & Asset Management</h3>
+  <p>Deploy Research Genies, Portfolio Reconciliation agents, and Compliance Filing assistants through governed MCP servers. Orchestrate data across Aladdin, SimCorp, Salesforce FSC, and Workday with complete audit trails for SEC examiners. Investment professionals focus on alpha — not administration.</p>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(6,182,212,0.15);color:var(--info)">?</div><div><div class="sn">Discovery Questions</div><div class="ss">WSS-aligned — Investment Ops, Client Services, Compliance, Marketing & Growth</div></div></div>
+  <div class="dl">
+    <div class="di"><div class="dn">1</div><div class="dt">When your investment team needs to synthesize research across earnings calls, SEC filings, and Bloomberg data, how much analyst time is spent gathering vs. actual analysis — and how does that lag impact your ability to act on market opportunities?</div><div class="dv ef">Efficiency</div></div>
+    <div class="di"><div class="dn">2</div><div class="dt">How are you managing real-time position reconciliation across multiple custodians and fund administrators — and what happens when data discrepancies surface during trade settlement or a regulatory reporting cycle?</div><div class="dv ri">Risk</div></div>
+    <div class="di"><div class="dn">3</div><div class="dt">When you onboard a new client or integrate a recently acquired firm's book of business, how many manual steps from KYC documentation to CRM setup to portfolio system provisioning — and what's the typical time from signed agreement to first portfolio review?</div><div class="dv ag">Agility</div></div>
+    <div class="di"><div class="dn">4</div><div class="dt">How confident are you in the accuracy and timeliness of your SEC filings, Form ADV, and JML access events — and how much manual effort goes into assembling those reports from disconnected systems each quarter?</div><div class="dv ri">Risk</div></div>
+    <div class="di"><div class="dn">5</div><div class="dt">What percentage of your advisor's day is admin vs. client-facing — and how are you connecting CRM, portfolio management, and marketing to drive personalized engagement that grows AUM?</div><div class="dv rv">Revenue</div></div>
+  </div>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">▶</div><div><div class="sn">Targeted Use Cases</div><div class="ss">Storybook solution areas — Investment Ops, Client Services, Compliance, Marketing</div></div></div>
+  <div class="ug">
+    <div class="uc ef"><h4>Investment Operations & Research Agents</h4><p>Research Genie synthesizes earnings calls, SEC filings, and Bloomberg data into structured summaries. Portfolio Reconciliation Genie automates position matching across custodians. Man Group: ChatGPT + LLM orchestration + Python in production.</p><span class="ut ef">Efficiency & OrCA</span></div>
+    <div class="uc ag"><h4>Client Onboarding & Service</h4><p>KYC Genie: document collection → World-Check/Refinitiv AML screening → CRM record → portfolio system provisioning → welcome communication. Support Genie reduces client handle time. Target: 48 hours, not 2 weeks.</p><span class="ut ag">Enterprise Agility</span></div>
+    <div class="uc ri"><h4>Regulatory Reporting & Compliance</h4><p>Compliance Filing Genie: SEC filings, Form ADV, NAV calculations, expense allocation — automated with complete audit trails. JML Lifecycle Genie: new hire provisioning across Workday, Active Directory, Bloomberg, Aladdin, and trading systems in hours.</p><span class="ut ri">Risk Reduction</span></div>
+    <div class="uc rv"><h4>Advisor Productivity & Client Growth</h4><p>Investor Marketing Genie: personalized fund campaigns triggered by portfolio data via Aprimo/Salesforce. Fidelity: $90K immediate savings from automated site creation. Marketing automation to increase AUM and client acquisition.</p><span class="ut rv">Revenue Growth</span></div>
+  </div>
+</div>
+
+<div class="pl">Page 2 of 2 — Wealth & Asset Management Sales Battlecard</div>
+<hr class="pd">
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(139,92,246,0.15);color:var(--purp)">★</div><div><div class="sn">Customer Proof Points</div><div class="ss">Salesforce-verified — 18 customers, $2.66M ARR (20.1% of FinServ)</div></div></div>
+  <div class="pg">
+    <div class="pc"><div class="pt">Private Equity / Multi-Asset</div><div class="pn">LGT Capital Partners</div><div class="ps">1,448 Recipes</div><div class="pd2">$495K ARR — highest recipe count in all FinServ. Axioma, DealCloud, Appian, 3+ BUs. Enterprise-scale investment operations orchestration.</div></div>
+    <div class="pc"><div class="pt">Global Alternative Assets</div><div class="pn">Brookfield Asset Management</div><div class="ps">M&A Integration</div><div class="pd2">Real-time sync between disparate enterprise apps and newly-acquired companies — critical post-acquisition integration at global scale.</div></div>
+    <div class="pc"><div class="pt">Quant / Hedge Fund</div><div class="pn">Man Group</div><div class="ps">Full AI + Workday Stack</div><div class="pd2">$215K ARR, 650 recipes, 3+ BUs. ChatGPT, Workday (all modules), Azure AD, AI/NLP help desk triage, DevOps CI/CD, Salesforce.</div></div>
+    <div class="pc"><div class="pt">Wealth Advisory</div><div class="pn">Fidelity Investments</div><div class="ps">$90K Immediate Savings</div><div class="pd2">$143K ARR. Aprimo marketing campaign automation. Automated site creation workflows eliminating manual processes. GTM operations.</div></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(39,152,159,0.15);color:var(--teal-light)">⚙</div><div><div class="sn">Ecosystem Connectors</div><div class="ss">Portfolio mgmt + CRM + compliance + data</div></div></div>
+    <div class="eg">
+      <div class="ec f">BlackRock Aladdin</div><div class="ec f">SS&C</div><div class="ec f">Charles River</div><div class="ec f">SimCorp</div><div class="ec f">Axioma</div><div class="ec f">DealCloud</div>
+      <div class="ec">Salesforce FSC</div><div class="ec">Workday (All)</div><div class="ec">Snowflake</div><div class="ec">NetSuite</div><div class="ec">Bloomberg API</div><div class="ec">Refinitiv</div><div class="ec">Aprimo</div><div class="ec">Marketo</div><div class="ec">Tableau</div><div class="ec">Databricks</div><div class="ec">Azure AD</div><div class="ec">ServiceNow</div><div class="ec">Addepar</div><div class="ec">PitchBook</div><div class="ec">Intralinks</div>
+    </div>
+    <div class="gn-box"><div class="gn-title">Workato Genies</div><div class="gn-list"><span class="gn-tag">Research Genie</span><span class="gn-tag">Portfolio Reconciliation Genie</span><span class="gn-tag">KYC Genie</span><span class="gn-tag">JML Lifecycle Genie</span><span class="gn-tag">Compliance Filing Genie</span><span class="gn-tag">Investor Marketing Genie</span><span class="gn-tag">Fund Launch Genie</span></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">⚡</div><div><div class="sn">Defensible Differentiators</div><div class="ss">SPEED • POWER • SCALE</div></div></div>
+    <div class="dg">
+      <div class="dc"><div class="dl2">Speed</div><div class="dx">Pre-built Workday, CRM, data connectors. Rapid post-M&A integration. Low-code for ops teams.</div></div>
+      <div class="dc"><div class="dl2">Power</div><div class="dx">Enterprise MCP + Research/Compliance Genies. AI orchestration with Python/LLMs. IDP for fund docs.</div></div>
+      <div class="dc"><div class="dl2">Scale</div><div class="dx">Federated governance for multi-entity firms. OrCA cost architecture. SOC 2. Global data residency.</div></div>
+    </div>
+    <div class="gb"><div class="gl">GSI Partners</div><div class="gn"><span>Accenture</span><span>Deloitte</span><span>PwC</span><span>Capgemini</span></div><div class="go">+ Regional SIs: wealth management & fund ops specialists</div></div>
+    <div class="gb"><div class="gl">Primary Competitors</div><div class="gn"><span>MuleSoft</span><span>Boomi</span><span>Build In-House</span><span>Salesforce (native)</span></div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

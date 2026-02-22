@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ========================================
+   Theme Definitions
+   ======================================== */
+
+:root {
+  --bg-base: #f9fafb;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --border-strong: #d1d5db;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-text: #ffffff;
+  --accent-subtle-bg: #eef2ff;
+  --accent-subtle-text: #4338ca;
+  --hero-from: #4f46e5;
+  --hero-to: #7c3aed;
+  --input-bg: #ffffff;
+  --card-glow: transparent;
+  --nav-bg: #ffffff;
+  --nav-border: #e5e7eb;
+}
+
+[data-theme="comic-dark"] {
+  --bg-base: #07071a;
+  --bg-surface: #0f0f2e;
+  --bg-elevated: #181848;
+  --text-primary: #eeeeff;
+  --text-secondary: #b0b0d0;
+  --text-muted: #6868a0;
+  --border-color: #222255;
+  --border-strong: #333370;
+  --accent: #facc15;
+  --accent-hover: #eab308;
+  --accent-text: #07071a;
+  --accent-subtle-bg: rgba(250, 204, 21, 0.1);
+  --accent-subtle-text: #facc15;
+  --hero-from: #0d0d30;
+  --hero-to: #1a0840;
+  --input-bg: #151540;
+  --card-glow: rgba(250, 204, 21, 0.06);
+  --nav-bg: #0a0a24;
+  --nav-border: #222255;
+}
+
+[data-theme="premium"] {
+  --bg-base: #09090b;
+  --bg-surface: #131316;
+  --bg-elevated: #1c1c22;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border-color: #222228;
+  --border-strong: #333340;
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-text: #ffffff;
+  --accent-subtle-bg: rgba(139, 92, 246, 0.1);
+  --accent-subtle-text: #a78bfa;
+  --hero-from: #13091f;
+  --hero-to: #0c0a20;
+  --input-bg: #1c1c22;
+  --card-glow: rgba(139, 92, 246, 0.04);
+  --nav-bg: #0c0c0f;
+  --nav-border: #222228;
+}
+
+/* ========================================
+   Tailwind Theme Tokens
+   ======================================== */
+
+@theme inline {
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================
+   Dark Theme Overrides
+   [data-theme] .class wins over .class in specificity
+   ======================================== */
+
+[data-theme="comic-dark"],
+[data-theme="premium"] {
+  /* --- Backgrounds --- */
+  & .bg-white {
+    background-color: var(--bg-surface);
+  }
+  & .bg-gray-50,
+  & .bg-gray-100 {
+    background-color: var(--bg-elevated);
+  }
+  & .bg-gray-200 {
+    background-color: var(--border-color);
+  }
+
+  /* --- Text --- */
+  & .text-gray-900 {
+    color: var(--text-primary);
+  }
+  & .text-gray-800,
+  & .text-gray-700,
+  & .text-gray-600 {
+    color: var(--text-secondary);
+  }
+  & .text-gray-500,
+  & .text-gray-400 {
+    color: var(--text-muted);
+  }
+
+  /* --- Borders --- */
+  & .border-gray-200,
+  & .border-gray-300 {
+    border-color: var(--border-color);
+  }
+  & .border-dashed {
+    border-color: var(--border-strong);
+  }
+
+  /* --- Form Inputs --- */
+  & input,
+  & select,
+  & textarea {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+  & input::placeholder,
+  & textarea::placeholder {
+    color: var(--text-muted);
+  }
+  & input:focus,
+  & select:focus,
+  & textarea:focus {
+    border-color: var(--accent);
+  }
+
+  /* --- Accent (indigo → theme accent) --- */
+  & .bg-indigo-600 {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+  & .hover\:bg-indigo-700:hover {
+    background-color: var(--accent-hover);
+  }
+  & .text-indigo-600,
+  & .text-indigo-700 {
+    color: var(--accent-subtle-text);
+  }
+  & .bg-indigo-50,
+  & .bg-indigo-100 {
+    background-color: var(--accent-subtle-bg);
+  }
+  & .group-hover\:bg-indigo-100:is(:where(.group):hover *) {
+    background-color: var(--accent-subtle-bg);
+  }
+
+  /* --- Purple accent --- */
+  & .text-purple-600,
+  & .text-purple-700 {
+    color: var(--accent-subtle-text);
+  }
+  & .bg-purple-50 {
+    background-color: var(--accent-subtle-bg);
+  }
+  & .group-hover\:bg-purple-100:is(:where(.group):hover *) {
+    background-color: var(--accent-subtle-bg);
+  }
+
+  /* --- Amber / Warning --- */
+  & .bg-amber-50 {
+    background-color: rgba(245, 158, 11, 0.1);
+  }
+  & .bg-amber-100 {
+    background-color: rgba(245, 158, 11, 0.15);
+  }
+  & .border-amber-200 {
+    border-color: rgba(245, 158, 11, 0.2);
+  }
+  & .text-amber-600,
+  & .text-amber-700,
+  & .text-amber-800 {
+    color: #fbbf24;
+  }
+  & .group-hover\:bg-amber-100:is(:where(.group):hover *) {
+    background-color: rgba(245, 158, 11, 0.15);
+  }
+
+  /* --- Red / Error --- */
+  & .bg-red-50 {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+  & .text-red-700,
+  & .text-red-800 {
+    color: #fca5a5;
+  }
+
+  /* --- Blue / Info --- */
+  & .bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  & .text-blue-700 {
+    color: #93c5fd;
+  }
+
+  /* --- Green --- */
+  & .text-green-600 {
+    color: #86efac;
+  }
+
+  /* --- Category badge colors (stay readable on dark) --- */
+  & .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.15);
+  }
+  & .text-blue-800 {
+    color: #93c5fd;
+  }
+  & .bg-red-100 {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+  & .bg-purple-100 {
+    background-color: rgba(139, 92, 246, 0.15);
+  }
+  & .text-purple-800 {
+    color: #c4b5fd;
+  }
+  & .bg-green-100 {
+    background-color: rgba(34, 197, 94, 0.15);
+  }
+  & .text-green-800 {
+    color: #86efac;
+  }
+
+  /* --- Disabled --- */
+  & .disabled\:bg-gray-400:disabled {
+    background-color: var(--border-strong);
+    color: var(--text-muted);
+  }
+
+  /* --- Hero gradient --- */
+  & .from-indigo-600 {
+    --tw-gradient-from: var(--hero-from);
+  }
+  & .to-purple-600 {
+    --tw-gradient-to: var(--hero-to);
+  }
+
+  /* --- Card placeholder gradients --- */
+  & .from-indigo-50 {
+    --tw-gradient-from: var(--bg-elevated);
+  }
+  & .to-purple-50 {
+    --tw-gradient-to: var(--bg-surface);
+  }
+  & .from-purple-50 {
+    --tw-gradient-from: var(--bg-elevated);
+  }
+
+  /* --- Navigation --- */
+  & header.border-b {
+    background-color: var(--nav-bg);
+    border-color: var(--nav-border);
+  }
+
+  /* --- Menu dropdown --- */
+  & .shadow-lg {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  /* --- Orange badge --- */
+  & .bg-orange-500 {
+    background-color: #f97316;
+  }
+}
+
+/* ========================================
+   Comic Dark — special effects
+   ======================================== */
+
+[data-theme="comic-dark"] {
+  & .hover\:shadow-md:hover {
+    box-shadow: 0 0 24px var(--card-glow), 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  & .bg-indigo-600:hover {
+    box-shadow: 0 0 16px rgba(250, 204, 21, 0.3);
+  }
+}
+
+/* ========================================
+   Clean Premium — special effects
+   ======================================== */
+
+[data-theme="premium"] {
+  & .hover\:shadow-md:hover {
+    box-shadow: 0 0 30px var(--card-glow), 0 4px 12px rgba(0, 0, 0, 0.6);
+  }
+  & .bg-indigo-600:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
+  }
+}

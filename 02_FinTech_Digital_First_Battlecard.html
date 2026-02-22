@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workato | FinTech / Digital-First — Sales Battlecard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#27989F;--teal-light:#3FB8C0;--teal-dark:#065F69;--black:#000;--card-bg:#0B2D2F;--surface:#1A4A4D;--tp:#FAFAFA;--ts:rgba(250,250,250,0.85);--tm:rgba(250,250,250,0.6);--bd:rgba(39,152,159,0.3);--ok:#10B981;--warn:#F59E0B;--err:#EF4444;--info:#06B6D4;--purp:#8B5CF6}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--black);color:var(--tp);line-height:1.5}
+.bc{max-width:1100px;margin:0 auto;padding:24px}
+.pl{text-align:center;color:var(--tm);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:24px 0 8px}
+.pd{border:none;border-top:1px dashed var(--bd);margin:8px 0 28px}
+.hdr{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--card-bg) 60%,var(--surface) 100%);border-radius:12px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid var(--bd);margin-bottom:18px}
+.hdr-l{flex:1}.hdr .la{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.hdr .li{width:28px;height:28px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff}
+.hdr .lt{font-size:16px;font-weight:700;color:var(--teal-light)}
+.hdr h1{font-size:21px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.hdr .st{font-size:12px;color:var(--ts)}
+.hdr-r{text-align:right}
+.hdr .bg{display:inline-block;background:rgba(39,152,159,0.2);border:1px solid var(--bd);padding:5px 14px;border-radius:6px;font-size:10px;font-weight:700;color:var(--teal-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.hdr .vr{font-size:10px;color:var(--tm)}
+.vds{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px}
+.vp{text-align:center;padding:7px 5px;border-radius:7px;font-size:10px;font-weight:700;border:1px solid}
+.vp.ag{background:rgba(6,182,212,0.12);border-color:rgba(6,182,212,0.3);color:var(--info)}
+.vp.ef{background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.3);color:var(--ok)}
+.vp.ri{background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.3);color:var(--warn)}
+.vp.rv{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.3);color:var(--purp)}
+.emcp{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,182,212,0.08));border:1px solid rgba(139,92,246,0.3);border-radius:10px;padding:14px 18px;margin-bottom:16px}
+.emcp h3{font-size:13px;font-weight:700;color:var(--purp);margin-bottom:5px}
+.emcp p{font-size:11px;color:var(--ts);line-height:1.5}
+.sec{background:var(--card-bg);border:1px solid var(--bd);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.si{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sn{font-size:14px;font-weight:700}.ss{font-size:10px;color:var(--tm);font-weight:500}
+.dl{display:flex;flex-direction:column;gap:8px}
+.di{display:grid;grid-template-columns:26px 1fr auto;align-items:start;gap:9px;padding:9px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border-left:3px solid var(--teal)}
+.dn{width:22px;height:22px;background:var(--teal-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--teal-light);flex-shrink:0}
+.dt{font-size:12px;color:var(--ts);line-height:1.45}
+.dv{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;margin-top:1px}
+.dv.ag{background:rgba(6,182,212,0.15);color:var(--info)}.dv.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.dv.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.dv.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.ug{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.uc{padding:14px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);border-top:3px solid}
+.uc.ag{border-top-color:var(--info)}.uc.ef{border-top-color:var(--ok)}.uc.ri{border-top-color:var(--warn)}.uc.rv{border-top-color:var(--purp)}
+.uc h4{font-size:12px;font-weight:700;margin-bottom:5px}.uc p{font-size:11px;color:var(--ts);line-height:1.4}
+.ut{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;margin-top:6px}
+.ut.ag{background:rgba(6,182,212,0.15);color:var(--info)}.ut.ef{background:rgba(16,185,129,0.15);color:var(--ok)}.ut.ri{background:rgba(245,158,11,0.15);color:var(--warn)}.ut.rv{background:rgba(139,92,246,0.15);color:var(--purp)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{padding:14px;background:linear-gradient(135deg,rgba(39,152,159,0.08),rgba(11,45,47,0.9));border-radius:7px;border:1px solid var(--bd);display:flex;flex-direction:column;gap:4px}
+.pc .pt{font-size:9px;color:var(--tm);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.pc .pn{font-size:14px;font-weight:800;color:var(--teal-light)}
+.pc .ps{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--teal),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pc .pd2{font-size:11px;color:var(--ts)}
+.eg{display:flex;flex-wrap:wrap;gap:6px}
+.ec{padding:6px 12px;background:var(--surface);border:1px solid var(--bd);border-radius:5px;font-size:11px;font-weight:600;color:var(--ts)}
+.ec.f{background:rgba(39,152,159,0.15);border-color:var(--teal);color:var(--teal-light)}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dc{padding:12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd);text-align:center}
+.dc .dl2{font-size:10px;font-weight:800;color:var(--teal-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.dc .dx{font-size:10px;color:var(--tm);line-height:1.35}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gb{margin-top:14px;padding:10px 12px;background:rgba(39,152,159,0.06);border-radius:7px;border:1px solid var(--bd)}
+.gb .gl{font-size:10px;font-weight:700;color:var(--tm);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.gb .gn{display:flex;gap:10px;flex-wrap:wrap}.gb .gn span{font-size:11px;font-weight:600;color:var(--ts)}
+.gb .go{font-size:9px;color:var(--tm);margin-top:3px}
+.qb{margin-top:12px;padding:12px 16px;background:rgba(139,92,246,0.06);border-left:3px solid var(--purp);border-radius:0 7px 7px 0}
+.qb .qq{font-size:11px;color:var(--ts);font-style:italic;line-height:1.45}.qb .qa{font-size:10px;color:var(--tm);margin-top:5px;font-weight:600}
+.gn-box{margin-top:12px;padding:10px 12px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-radius:7px}
+.gn-box .gn-title{font-size:10px;font-weight:700;color:var(--purp);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.gn-box .gn-list{display:flex;flex-wrap:wrap;gap:6px}
+.gn-box .gn-tag{font-size:10px;font-weight:600;color:var(--ts);padding:3px 8px;background:rgba(139,92,246,0.1);border-radius:4px}
+@media print{body{background:#fff;color:#1a1a1a}.bc{page-break-after:always}.pd{page-break-before:always}}
+</style>
+</head>
+<body>
+<div class="bc">
+
+<div class="pl">Page 1 of 2 — FinTech / Digital-First Sales Battlecard</div>
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="la"><div class="li">W</div><div class="lt">workato</div></div>
+    <h1>FinTech / Digital-First</h1>
+    <div class="st">Fast money moves on fast infrastructure. &bull; Sales Battlecard — Sellers & Partners</div>
+  </div>
+  <div class="hdr-r">
+    <div class="bg">FinServ Sub-Vertical</div>
+    <div class="vr">v2.0 &bull; Q1 FY27 &bull; WSS Aligned</div>
+  </div>
+</div>
+<div class="vds"><div class="vp ag">Enterprise Agility</div><div class="vp ef">Efficiency & OrCA</div><div class="vp ri">Risk Reduction</div><div class="vp rv">Revenue Growth</div></div>
+<div class="emcp">
+  <h3>Enterprise MCP for FinTech</h3>
+  <p>Scale your platform faster. Build and orchestrate AI agents securely. Enterprise MCP lets you rapidly deploy agentic workflows — from merchant onboarding to reconciliation — with governed, auditable AI execution that regulators and enterprise customers demand. Workato Embed lets FinTechs build integration into their product once, delivering connectivity as a native feature for customers.</p>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(6,182,212,0.15);color:var(--info)">?</div><div><div class="sn">Discovery Questions</div><div class="ss">WSS-aligned — targeting hypergrowth pain points and scaling bottlenecks</div></div></div>
+  <div class="dl">
+    <div class="di"><div class="dn">1</div><div class="dt">Your customers expect instant account creation. How many systems does a new customer touch from sign-up to first transaction — and where are the manual handoffs creating abandonment risk or compliance exposure?</div><div class="dv ag">Agility</div></div>
+    <div class="di"><div class="dn">2</div><div class="dt">As you scale, how much engineering time is consumed maintaining integrations across payment rails, credit bureaus, CRM, and data platforms versus building product features that drive ARR?</div><div class="dv ef">Efficiency</div></div>
+    <div class="di"><div class="dn">3</div><div class="dt">With KYC/AML requirements tightening and regulators scrutinizing digital-first models, how are you ensuring every identity verification, credit decision, and transaction is governed with a complete audit trail — especially as you add AI to those workflows?</div><div class="dv ri">Risk</div></div>
+    <div class="di"><div class="dn">4</div><div class="dt">How are you orchestrating your RevOps stack — Salesforce, HubSpot, marketing automation, data warehouse — to eliminate manual errors in campaign creation and optimize territory management for new customer acquisition channels?</div><div class="dv rv">Revenue</div></div>
+    <div class="di"><div class="dn">5</div><div class="dt">When you think about merchant or partner onboarding, how many manual steps and systems are involved from KYC to API key delivery — and what would it mean for growth if that went from months to minutes?</div><div class="dv ag">Agility</div></div>
+  </div>
+</div>
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">▶</div><div><div class="sn">Targeted Use Cases</div><div class="ss">Storybook solution areas — CX & Onboarding, RevOps, Embedded Payments, Platform & API</div></div></div>
+  <div class="ug">
+    <div class="uc ag"><h4>Instant Customer Onboarding</h4><p>KYC Genie: identity verification (Socure/Alloy) → AML check → account provisioning → welcome communication — all in under 5 minutes. Bread Financial reduced onboarding by 84%, eliminating 30 min of manual data entry per customer.</p><span class="ut ag">Enterprise Agility</span></div>
+    <div class="uc rv"><h4>Revenue Operations at Scale</h4><p>RevOps Genie: Salesforce license optimization, territory management, pipeline automation. Campaign Genie: real-time trigger-based campaigns eliminating native HubSpot/Salesforce limitations. Ramp: 97% reduction in time to generate opportunities.</p><span class="ut rv">Revenue Growth</span></div>
+    <div class="uc ef"><h4>AI-Powered Finance & Reconciliation</h4><p>FinAssist Genie: FinOps Q&A, SEC filing automation, reconciliation and forecasting hygiene. Order-to-cash, procure-to-pay automation. Revolut: NetSuite-Coupa-Jira orchestration + IDP for invoices replacing Zapier.</p><span class="ut ef">Efficiency & OrCA</span></div>
+    <div class="uc ri"><h4>Embedded Payments & Platform Integration</h4><p>Partner Onboarding Genie: KYC → pricing → DocuSign → API key delivery → go-live notification. Novatti: merchant onboarding from months to under 5 minutes across 15 systems. Workato Embed for product-led integration.</p><span class="ut ri">Risk Reduction</span></div>
+  </div>
+</div>
+
+<div class="pl">Page 2 of 2 — FinTech / Digital-First Sales Battlecard</div>
+<hr class="pd">
+<div class="sec">
+  <div class="sh"><div class="si" style="background:rgba(139,92,246,0.15);color:var(--purp)">★</div><div><div class="sn">Customer Proof Points</div><div class="ss">Salesforce-verified — largest FinServ segment: 29 customers, $6M ARR (45.5%)</div></div></div>
+  <div class="pg">
+    <div class="pc"><div class="pt">Crypto / Exchange</div><div class="pn">Coinbase</div><div class="ps">$1.85M ARR</div><div class="pd2">552 recipes, 3+ BUs. AWS Athena, Slack, PagerDuty, Event Streams, Workbot, APIM, SCIM, EKM. Full enterprise governance at scale.</div></div>
+    <div class="pc"><div class="pt">Corporate Cards / Spend Mgmt</div><div class="pn">Ramp</div><div class="ps">97% Faster Opps</div><div class="pd2">80% decrease in L1 tickets. 12x faster debugging. Transformed 150-step Node.js process into 25-step SQL workflow.</div></div>
+    <div class="pc"><div class="pt">BNPL / Consumer Lending</div><div class="pn">Bread Financial</div><div class="ps">84% Faster Onboarding</div><div class="pd2">Eliminated 30 min/customer manual data entry. Salesforce + DocuSign orchestration. Enhanced merchant acquisition scalability.</div></div>
+    <div class="pc"><div class="pt">Payments Platform</div><div class="pn">Novatti Group</div><div class="ps">Months → 5 Min</div><div class="pd2">$121K ARR, 167 recipes. Merchant onboarding across 7 systems per customer reduced from months to under 5 minutes.</div></div>
+  </div>
+  <div class="qb"><div class="qq">"With Workato, we're able to acquire customers in minutes, transforming the way we expand our customer acquisition channels and grow our business."</div><div class="qa">— Kristin Fretz, Director of RevOps, Bread Financial</div></div>
+</div>
+<div class="tc">
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(39,152,159,0.15);color:var(--teal-light)">⚙</div><div><div class="sn">Ecosystem Connectors</div><div class="ss">Payments + credit + RevOps + data</div></div></div>
+    <div class="eg">
+      <div class="ec f">Stripe</div><div class="ec f">Plaid</div><div class="ec f">Marqeta</div><div class="ec f">Socure</div><div class="ec f">Alloy</div><div class="ec f">Experian</div><div class="ec f">Equifax</div>
+      <div class="ec">Salesforce</div><div class="ec">HubSpot</div><div class="ec">Snowflake</div><div class="ec">NetSuite</div><div class="ec">Coupa</div><div class="ec">Jira</div><div class="ec">BambooHR</div><div class="ec">Workday</div><div class="ec">DocuSign</div><div class="ec">AWS Athena</div><div class="ec">AWS Bedrock</div><div class="ec">Databricks</div><div class="ec">Zendesk</div><div class="ec">Slack / Teams</div><div class="ec">PagerDuty</div><div class="ec">Outreach</div>
+    </div>
+    <div style="margin-top:12px"><div style="font-size:10px;color:var(--tm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Embed Opportunity</div><div style="font-size:10px;color:var(--ts)">FinTechs can embed Workato to offer integration as a native product feature — payments, billing, and data connectivity for their customers.</div></div>
+    <div class="gn-box"><div class="gn-title">Workato Genies</div><div class="gn-list"><span class="gn-tag">KYC Genie</span><span class="gn-tag">CX Genie</span><span class="gn-tag">RevOps Genie</span><span class="gn-tag">Campaign Genie</span><span class="gn-tag">FinAssist Genie</span><span class="gn-tag">Partner Onboarding Genie</span><span class="gn-tag">Data Pipeline Genie</span></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div class="si" style="background:rgba(16,185,129,0.15);color:var(--ok)">⚡</div><div><div class="sn">Defensible Differentiators</div><div class="ss">SPEED • POWER • SCALE</div></div></div>
+    <div class="dg">
+      <div class="dc"><div class="dl2">Speed</div><div class="dx">Cloud-native autoscaling for hypergrowth. 1,200+ connectors. API-first. No capacity planning.</div></div>
+      <div class="dc"><div class="dl2">Power</div><div class="dx">Enterprise MCP + Agentic Genies. Workato Embed. IDP for invoices/docs. Composable platform.</div></div>
+      <div class="dc"><div class="dl2">Scale</div><div class="dx">OrCA: consumption-based. Embed for product-led growth. SOC 2. GDPR. Scalable pricing for growth.</div></div>
+    </div>
+    <div class="gb"><div class="gl">GSI Partners</div><div class="gn"><span>Accenture</span><span>Deloitte</span><span>PwC</span><span>Capgemini</span></div><div class="go">+ Regional SIs: fintech & digital payments specialists</div></div>
+    <div class="gb"><div class="gl">Primary Competitors</div><div class="gn"><span>MuleSoft</span><span>Custom / Build In-House</span><span>Boomi</span><span>Zapier / n8n (shadow IT)</span></div></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

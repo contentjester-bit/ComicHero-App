@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model WantListItem {
+  id                 String          @id @default(uuid())
+  volumeName         String
+  issueNumber        String
+  comicVineIssueId   Int?
+  targetMaxPrice     Float
+  notes              String?
+  isActive           Boolean         @default(true)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  lastCheckedAt      DateTime?
+  matches            WantListMatch[]
+
+  @@index([volumeName, issueNumber])
+}
+
+model WantListMatch {
+  id             String       @id @default(uuid())
+  wantListItemId String
+  wantListItem   WantListItem @relation(fields: [wantListItemId], references: [id], onDelete: Cascade)
+  ebayItemId     String
+  title          String
+  price          Float
+  totalPrice     Float
+  imageUrl       String?
+  itemUrl        String
+  dealScore      Float?
+  percentBelow   Float?
+  foundAt        DateTime     @default(now())
+  isNew          Boolean      @default(true)
+
+  @@index([wantListItemId])
+  @@unique([wantListItemId, ebayItemId])
+}
+
+model CachedComicVineData {
+  id        String   @id @default(uuid())
+  cacheKey  String   @unique
+  dataType  String
+  jsonData  String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([cacheKey])
+  @@index([expiresAt])
+}
+
+model CollectionItem {
+  id               String   @id @default(uuid())
+  comicVineIssueId Int
+  comicVineVolumeId Int
+  volumeName       String
+  issueNumber      String
+  name             String?
+  imageUrl         String?
+  coverDate        String?
+  condition        String?
+  notes            String?
+  pricePaid        Float?
+  addedAt          DateTime @default(now())
+
+  @@unique([comicVineIssueId])
+  @@index([comicVineVolumeId])
+}
+
+model PriceSnapshot {
+  id           String   @id @default(uuid())
+  volumeName   String
+  issueNumber  String
+  grade        Float?
+  averagePrice Float
+  medianPrice  Float
+  dataPoints   Int
+  snapshotDate DateTime @default(now())
+
+  @@index([volumeName, issueNumber, grade])
+  @@index([snapshotDate])
+}
+
+model CuratedBundle {
+  id          String              @id @default(uuid())
+  name        String
+  description String?
+  theme       String?
+  status      String              @default("draft")
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  items       CuratedBundleItem[]
+
+  @@index([status])
+}
+
+model CuratedBundleItem {
+  id               String        @id @default(uuid())
+  bundleId         String
+  bundle           CuratedBundle @relation(fields: [bundleId], references: [id], onDelete: Cascade)
+  volumeName       String
+  issueNumber      String
+  comicVineIssueId Int?
+  imageUrl         String?
+  reason           String?
+  sortOrder        Int           @default(0)
+  addedAt          DateTime      @default(now())
+
+  @@index([bundleId])
+  @@unique([bundleId, volumeName, issueNumber])
+}
